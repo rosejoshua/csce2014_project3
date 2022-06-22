@@ -11,6 +11,7 @@
  */
 
 #include <cstdlib>
+#include "SearchEngine.h"
 
 using namespace std;
 
@@ -18,6 +19,10 @@ using namespace std;
  * 
  */
 int main(int argc, char** argv) {
+    
+    SearchEngine searchEngine;
+    searchEngine.takeInSortedByTitle("streaming-title.txt");
+    searchEngine.takeInSortedByDateRating("streaming-year.txt");
 
     return 0;
 }
