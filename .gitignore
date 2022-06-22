@@ -1,7 +1,7 @@
 .dep.inc
-Makefile/
 build/
 dist/
 nbproject/
 streaming-title.txt
 streaming-year.txt
+Makefile
