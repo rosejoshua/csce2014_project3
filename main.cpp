@@ -24,8 +24,7 @@ int main(int argc, char** argv) {
     SearchEngine searchEngine;
     searchEngine.takeInSortedFilmDataByTitle("streaming-title.txt");
     searchEngine.takeInSortedFilmDataByDateRating("streaming-year.txt");
-    
-    searchEngine.printAllFilms();
+        
     string menuChoice = "";
     string tempString1 = "";
     string tempString2 = "";

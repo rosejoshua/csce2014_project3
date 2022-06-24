@@ -49,10 +49,7 @@ void SearchEngine::printAllFilms()
 }
 
 void SearchEngine::takeInSortedFilmData(string filename, vector<Streaming*> *filmVector)
-{
-    //for testing while there are some bad entries in sample data
-    int numToProcess = 100;
-    
+{    
     int firstIndexAfterComma = 0;
     int currCommaIndex = 0;
     string inputString = "";
@@ -71,9 +68,8 @@ void SearchEngine::takeInSortedFilmData(string filename, vector<Streaming*> *fil
     {
         cout << "Open file failed... exiting now.\n" << endl;
     }
-    while(infile.peek() != EOF  && numToProcess > 0)
+    while(infile.peek() != EOF)
     {
-        numToProcess--;
         platform = "";
         title = "";
         releaseDate = 0;
@@ -148,12 +144,7 @@ Streaming* SearchEngine::searchByTitle(string title)
 
 Streaming* SearchEngine::binarySearchByTitle(int start, int end, string title)
 {
-//    cout << "start: " << start << endl;
-//    cout << "end: " << end << endl;
-//    cout << "title: " << title << endl;
-//    
-//    cout << "mid: " << (start+end)/2 << endl;
-//    cout << "middle element title: " << sortedByTitle[(start+end)/2]->getTitle() << endl;
+    cout << "middleTitle: " << sortedByTitle[(start+end)/2]->getTitle() << endl;
     
     //return middle element (or 1st of 2 remaining when narrowed down to two) if match
     if (sortedByTitle[(start+end)/2]->getTitle()==title)
@@ -171,15 +162,13 @@ Streaming* SearchEngine::binarySearchByTitle(int start, int end, string title)
         return sortedByTitle[end];    
     }
     //recursive search when title is earlier in sorting than middle
-    else if (title < sortedByTitle[(start+end)/2]->getTitle())
+    else if (title.compare(sortedByTitle[(start+end)/2]->getTitle()) < 0)
     {
-        cout << "title less than middle title" << endl;
         return binarySearchByTitle(start, (start+end)/2, title);
     }
     //recursive search when title is later in sorting than middle
-    else if (title > sortedByTitle[(start+end)/2]->getTitle())
+    else if (title.compare(sortedByTitle[(start+end)/2]->getTitle()) > 0)
     {
-        cout << "title greater than middle title" << endl;
         return binarySearchByTitle((start+end)/2, end, title);
     }
     //doesn't exist
@@ -255,12 +244,6 @@ int SearchEngine::findUpperIndexOfRatingWithinYear(int indexWithMatchingYearAndR
 //simply returns an index for any element with the matching year
 int SearchEngine::binarySearchByYear(int start, int end, int year)
 {
-//    cout << "start: " << start << endl;
-//    cout << "end: " << end << endl;
-//    cout << "year: " << year << endl;
-//    
-//    cout << "mid: " << (start+end)/2 << endl;
-//    cout << "middle element year: " << sortedByDateRating[(start+end)/2]->getReleaseDate() << endl;
     
     //return middle element (or 1st of 2 remaining when narrowed down to two) if match
     if (sortedByDateRating[(start+end)/2]->getReleaseDate()==year)
