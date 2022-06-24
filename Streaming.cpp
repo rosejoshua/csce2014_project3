@@ -9,8 +9,9 @@
  * 
  * Created on June 22, 2022, 10:41 AM
  */
-
+#include <iostream>
 #include "Streaming.h"
+using namespace std;
 
 Streaming::Streaming() {
     platform = "";
@@ -45,67 +46,72 @@ Streaming::Streaming(const Streaming& orig)
 Streaming::~Streaming() {
 }
     
-string getPlatform()
+string Streaming::getPlatform()
 {
-    return "";
+    return platform;
 }
 
-string getTitle()
+string Streaming::getTitle()
 {
-    return "";
+    return title;
 }
 
-int getReleaseDate()
+int Streaming::getReleaseDate()
 {
-    return -1;
+    return releaseDate;
 }
 
-string getRating()
+string Streaming::getRating()
 {
-    return "";
+    return rating;
 }
 
-string getCategoryKeyWords()
+string Streaming::getCategoryKeyWords()
 {
-    return "";
+    return categoryKeyWords;
 }
 
-string getDescription()
+string Streaming::getDescription()
 {
-    return "";
+    return description;
 }
 
-void setPlatform(string platform)
+void Streaming::setPlatform(string platform)
 {
-
+    this->platform = platform;
 }
 
-void setTitle(string title)
+void Streaming::setTitle(string title)
 {
-
+    this->title = title;
 }
 
-void setReleaseDate(int releaseDate)
+void Streaming::setReleaseDate(int releaseDate)
 {
-
+    this->releaseDate = releaseDate;
 }
 
-void setRating(string rating)
+void Streaming::setRating(string rating)
 {
-
+    this->rating = rating;
 }
 
-void setCategoryKeyWords(string categoryKeyWords)
+void Streaming::setCategoryKeyWords(string categoryKeyWords)
 {
-
+    this->categoryKeyWords = categoryKeyWords;
 }
 
-void setDescription(string description)
+void Streaming::setDescription(string description)
 {
-
+    this->description = description;
 }
 
-void print()
+void Streaming::print()
 {
-
+    cout << "platform: " << platform << endl;
+    cout << "title: " << title << endl;
+    cout << "release date: " << releaseDate << endl;
+    cout << "rating: " << rating << endl;
+    cout << "category key words: " << categoryKeyWords << endl;
+    cout << "description: " << description << endl;
 }

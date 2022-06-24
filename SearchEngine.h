@@ -24,15 +24,24 @@ public:
     SearchEngine(const SearchEngine& orig);
     virtual ~SearchEngine();
     
-    void takeInSortedByTitle(string filename);
-    void takeInSortedByDateRating(string filename);
+    void takeInSortedFilmDataByTitle(string filename);
+    void takeInSortedFilmDataByDateRating(string filename);
+    
+    
+    //for testing only, delete
+    void printAllFilms();
     
     Streaming* searchByTitle(string title);
-    Streaming* searchByDateRating(int date, string rating);
+    void searchByDateRating(int date, string rating);
     
 private:
+    void takeInSortedFilmData(string filename, vector<Streaming*> *filmVector);
     vector<Streaming*> sortedByTitle;
     vector<Streaming*> sortedByDateRating;
+    Streaming* binarySearchByTitle(int start, int end, string title);
+    int binarySearchByYear(int start, int end, int year);
+    int findLowerIndexOfRatingWithinYear(int anyYearMatchIndex, string rating);
+    int findUpperIndexOfRatingWithinYear(int indexWithMatchingYearAndRating, string rating);
 
 };
 
